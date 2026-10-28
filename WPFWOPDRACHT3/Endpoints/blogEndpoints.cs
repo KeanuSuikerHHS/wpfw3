@@ -8,19 +8,19 @@ namespace WPFWOPDRACHT3.Endpoints
         {
 
             // GET alle projecten
-            app.MapGet("/blog", () => );
+            app.MapGet("/blog", () => {});
 
             // GET 1 project via id
-            app.MapGet("/blog/{id}", () => );
+            app.MapGet("/blog/{id}", () => {});
 
             // POST 1 project aanmaken
-            app.MapPost("/blog", () => );
+            app.MapPost("/blog", () => {});
 
             // PUT Wijzig 1 project
-            app.MapPut("/blog/{id}", () => );
+            app.MapPut("/blog/{id}", () => {});
 
             // DELETE Verwijder 1 project
-            app.MapDelete("/blog/{id}", () =>);
+            app.MapDelete("/blog/{id}", () => {});
         }
     }
 }

@@ -2,6 +2,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddValidation();
+builder.Services.AddDbContext<WPFWOPDRACHT3.Data.PortofolioContext>();
 
 var app = builder.Build();
 

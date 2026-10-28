@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace WPFWOPDRACHT3.Models
 {
@@ -6,10 +7,14 @@ namespace WPFWOPDRACHT3.Models
     {
         public int Id {get; set;}
 
+        [Required(ErrorMessage = "Een titel is verplicht.")]
+        [MaxLength(200, ErrorMessage = "De titel mag maximaal 200 tekens bevatten.")]
         public string Titel {get; set;}
 
+        [Required(ErrorMessage = "Een bericht is verplicht.")]
         public string Bericht {get; set;}
 
+        [Required(ErrorMessage = "Een datum is verplicht.")]
         public DateOnly Datum {get; set;}
     }
 }
