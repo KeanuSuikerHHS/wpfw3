@@ -9,7 +9,7 @@ var app = builder.Build();
 
 app.UseSwagger();
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "");
 
 app.UseSwaggerUI(options =>
 {
