@@ -60,7 +60,6 @@ namespace WPFWOPDRACHT3.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Categorie")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateOnly>("Datum")

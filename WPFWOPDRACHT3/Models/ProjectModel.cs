@@ -8,18 +8,18 @@ namespace WPFWOPDRACHT3.Models
         public int Id {get; set;}
         [Required(ErrorMessage = "Een titel is verplicht.")]
         [MaxLength(200, ErrorMessage = "De titel mag maximaal 200 tekens bevatten.")]
-        public string Titel {get; set;}
+        public required string Titel {get; set;}
 
         [Required(ErrorMessage = "Een beschrijving is verplicht.")]
 
-        public string Beschrijving {get; set;}
+        public required string Beschrijving {get; set;}
 
 
-        public string Categorie {get; set;}
+        public string? Categorie {get; set;}
 
         [Required(ErrorMessage = "Een GitHub URL is verplicht.")]
 
-        public string GitHubURL {get; set;}
+        public required string GitHubURL {get; set;}
 
         [Required(ErrorMessage = "Een datum is verplicht.")]
 

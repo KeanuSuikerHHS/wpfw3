@@ -1,13 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WPFWOPDRACHT3.Dtos
+namespace WPFWOPDRACHT3.Dtos.ProjectDTOs
 {
-    public record ProjectDTO
+    public record CreateProjectDTO
     (
-        [Required] int Id,
         [Required] string Titel,
         [Required] string Beschrijving,
-        string Categorie,
+        string? Categorie,
         [Required] string GitHubURL,
         DateOnly Datum
     );

@@ -9,10 +9,10 @@ namespace WPFWOPDRACHT3.Models
 
         [Required(ErrorMessage = "Een titel is verplicht.")]
         [MaxLength(200, ErrorMessage = "De titel mag maximaal 200 tekens bevatten.")]
-        public string Titel {get; set;}
+        public required string Titel {get; set;}
 
         [Required(ErrorMessage = "Een bericht is verplicht.")]
-        public string Bericht {get; set;}
+        public required string Bericht {get; set;}
 
         [Required(ErrorMessage = "Een datum is verplicht.")]
         public DateOnly Datum {get; set;}

@@ -67,7 +67,7 @@ namespace WPFWOPDRACHT3.Services
 
         public async Task<bool> UpdateBlogPost(int id, BlogModel blogModel)
         {
-            var blog = await _context.Blogposts.FindAsync();
+            var blog = await _context.Blogposts.FindAsync(id);
             _context.Entry(blog).CurrentValues.SetValues(blogModel);
             await _context.SaveChangesAsync();
             return true;
@@ -75,7 +75,7 @@ namespace WPFWOPDRACHT3.Services
 
         public async Task<bool> UpdateProject(int id, ProjectModel projectModel)
         {
-            var project = await _context.Projecten.FindAsync();
+            var project = await _context.Projecten.FindAsync(id);
             _context.Entry(project).CurrentValues.SetValues(projectModel);
             await _context.SaveChangesAsync();
             return true;

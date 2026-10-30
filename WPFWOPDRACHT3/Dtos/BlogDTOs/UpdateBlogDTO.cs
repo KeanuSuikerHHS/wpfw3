@@ -1,13 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WPFWOPDRACHT3.Dtos
-{
+namespace WPFWOPDRACHT3.Dtos.BlogDTOs
 
-    public record BlogDTO
+
+{
+    public record UpdateBlogDTO
     (
         [Required] int Id,
         [Required] string Titel,
         [Required] string Bericht,
-        [Required] DateOnly Datum
+        DateOnly Datum
     );
 }

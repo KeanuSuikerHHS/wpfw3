@@ -165,3 +165,4 @@ c:\Users\Keanu\Desktop\wpfw3\WPFWOPDRACHT3\bin\Debug\net10.0\runtimes\osx-x64\na
 c:\Users\Keanu\Desktop\wpfw3\WPFWOPDRACHT3\bin\Debug\net10.0\runtimes\win-arm64\native\msalruntime_arm64.dll
 c:\Users\Keanu\Desktop\wpfw3\WPFWOPDRACHT3\bin\Debug\net10.0\runtimes\win-x64\native\msalruntime.dll
 c:\Users\Keanu\Desktop\wpfw3\WPFWOPDRACHT3\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
+C:\Users\Keanu\Desktop\wpfw3\WPFWOPDRACHT3\obj\Debug\net10.0\WPFWOPDRACHT3.sourcelink.json
