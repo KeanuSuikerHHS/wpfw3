@@ -13,22 +13,24 @@ namespace WPFWOPDRACHT3.Endpoints
         public static void MapBlogEndpoints(this WebApplication app)
         {
 
+            var blogGroup = app.MapGroup("/blog").WithTags("Blogs");
+
             // GET alle blogs
-            app.MapGet("/blog", async([FromServices] DataBaseService db) =>
+            blogGroup.MapGet("/", async([FromServices] DataBaseService db) =>
             {
                 var blogPosts = await db.GetAllBlogPosts();
                 return blogPosts is not null ? Results.Ok(blogPosts) : Results.NoContent();
             });
 
             // GET 1 blog via id
-            app.MapGet("/blog/{id}", async ([FromServices] DataBaseService db, int id) =>
+            blogGroup.MapGet("/{id}", async ([FromServices] DataBaseService db, int id) =>
             {
                 var blogPost = await db.GetBlogById(id);
                 return blogPost is not null ? Results.Ok(blogPost) : Results.NotFound();
             });
 
             // POST 1 blog aanmaken
-            app.MapPost("/blog", async ([FromServices] DataBaseService db, CreateBlogDTO blog) =>
+            blogGroup.MapPost("/", async ([FromServices] DataBaseService db, CreateBlogDTO blog) =>
             {
                 BlogModel blogModel = new BlogModel
                 {
@@ -42,27 +44,30 @@ namespace WPFWOPDRACHT3.Endpoints
             });
 
             // PUT Wijzig 1 blog
-            app.MapPut("/blog/{id}", async ([FromServices] DataBaseService db, int id, UpdateBlogDTO blog) =>
+            blogGroup.MapPut("/{id}", async ([FromServices] DataBaseService db, int id, UpdateBlogDTO blog) =>
             {
                 var existingBlog = await db.GetBlogById(id);
-    
+
                 if (existingBlog is null)
-                {
-                    return Results.NotFound();
-                }
+                    {
+                        return Results.NotFound();
+                    }
 
-                existingBlog.Titel = blog.Titel;
-                existingBlog.Bericht = blog.Bericht;
-                existingBlog.Datum = blog.Datum;
+                var blogModel = new BlogModel 
+                    {
+                        Id = id,
+                        Titel = blog.Titel,
+                        Bericht = blog.Bericht,
+                        Datum = blog.Datum
+                    };
 
-                await db.UpdateBlogPost(id, existingBlog);
+                var updatedBlog = await db.UpdateBlogPost(id, blogModel);
 
-                return Results.Ok(existingBlog);
-
-            });
+                return Results.Ok(updatedBlog);
+});
 
             // DELETE Verwijder 1 blog
-            app.MapDelete("/blog/{id}", async ([FromServices] DataBaseService db, int id) =>
+            blogGroup.MapDelete("/{id}", async ([FromServices] DataBaseService db, int id) =>
             {
                 var existingBlog = await db.GetBlogById(id);
     
