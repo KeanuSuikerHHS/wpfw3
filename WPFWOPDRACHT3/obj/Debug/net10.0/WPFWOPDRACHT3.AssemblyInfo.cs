@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WPFWOPDRACHT3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d809a719db254aa2982e3d5f561668f60b4dffe7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+da04307a3b4863b6740a595134d4a4e3b4b3f5eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("WPFWOPDRACHT3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WPFWOPDRACHT3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

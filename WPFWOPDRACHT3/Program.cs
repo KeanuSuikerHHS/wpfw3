@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using WPFWOPDRACHT3.Data;
 using WPFWOPDRACHT3.Endpoints;
 using WPFWOPDRACHT3.Services;
 
@@ -8,6 +10,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddValidation();
 builder.Services.AddDbContext<WPFWOPDRACHT3.Data.PortofolioContext>();
 builder.Services.AddScoped<DataBaseService>();
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<PortofolioContext>(options =>
+    options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
