@@ -41,7 +41,7 @@ namespace WPFWOPDRACHT3.Endpoints
 
                 await db.AddProject(projectModel);
                 return Results.Created($"/project/{projectModel.Id}", projectModel);
-            });
+            }).RequireAuthorization("EditorOrAdmin");
 
             // PUT Wijzig 1 project
             projectGroup.MapPut("/{id}", async ([FromServices] DataBaseService db, int id, UpdateProjectDTO project) =>
@@ -66,7 +66,7 @@ namespace WPFWOPDRACHT3.Endpoints
                 var updatedProject = await db.UpdateProject(id, projectModel);
 
                 return Results.Ok(updatedProject);
-            });
+            }).RequireAuthorization("EditorOrAdmin");
 
             // DELETE Verwijder 1 project
             projectGroup.MapDelete("/{id}", async ([FromServices] DataBaseService db, int id) =>
@@ -82,7 +82,7 @@ namespace WPFWOPDRACHT3.Endpoints
                 await db.DeleteProject(id);
 
                 return Results.NoContent();
-            });
+            }).RequireAuthorization("EditorOrAdmin");
         }
     }
 }

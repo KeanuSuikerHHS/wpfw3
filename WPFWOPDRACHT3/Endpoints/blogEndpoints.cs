@@ -41,7 +41,7 @@ namespace WPFWOPDRACHT3.Endpoints
 
                 await db.AddBlogPost(blogModel);
                 return Results.Created($"/blog/{blogModel.Id}", blogModel);
-            });
+            }).RequireAuthorization("EditorOrAdmin");
 
             // PUT Wijzig 1 blog
             blogGroup.MapPut("/{id}", async ([FromServices] DataBaseService db, int id, UpdateBlogDTO blog) =>
@@ -64,7 +64,7 @@ namespace WPFWOPDRACHT3.Endpoints
                 var updatedBlog = await db.UpdateBlogPost(id, blogModel);
 
                 return Results.Ok(updatedBlog);
-});
+            }).RequireAuthorization("EditorOrAdmin");
 
             // DELETE Verwijder 1 blog
             blogGroup.MapDelete("/{id}", async ([FromServices] DataBaseService db, int id) =>
@@ -80,7 +80,7 @@ namespace WPFWOPDRACHT3.Endpoints
                 await db.DeleteBlogPost(id);
 
                 return Results.NoContent();
-            });
+            }).RequireAuthorization("EditorOrAdmin");
         }
     }
 }

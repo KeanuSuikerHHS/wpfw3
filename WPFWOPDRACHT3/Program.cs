@@ -15,7 +15,11 @@ builder.Services.AddIdentity<UserModel, IdentityRole>()
     .AddEntityFrameworkStores<PortofolioContext>()
     .AddDefaultTokenProviders();
 builder.Services.AddAuthentication();
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("EditorOrAdmin", policy =>
+        policy.RequireRole("Editor", "Admin"));
+});
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
